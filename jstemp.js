@@ -1,7 +1,10 @@
 function actDragStart(e){
-    var temp = this.cloneNode(true);
+    var 
+        tempDiv = document.getElementById('dragTemp'),
+        temp = this.cloneNode(true);
     temp.style.display = "none";
-    document.body.appendChild(temp);
+    tempDiv.innerHTML = "";
+    tempDiv.appendChild(temp);
     e.dataTransfer.setDragImage(temp, 0, 0);
 }
 

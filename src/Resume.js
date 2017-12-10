@@ -9,7 +9,7 @@ import Rows from './Rows';
 class Resume extends React.Component{
     componentDidMount() {
         const jsSource = [
-            'function actDragStart(a){var b=this.cloneNode(!0);b.style.display="none";document.body.appendChild(b);a.dataTransfer.setDragImage(b,0,0)}',
+            'function actDragStart(c){var b=document.getElementById("dragTemp"),a=this.cloneNode(!0);a.style.display="none";b.innerHTML="";b.appendChild(a);c.dataTransfer.setDragImage(a,0,0)};',
             'function actMousedown(a){for(var b,d,c=a.target;!c.classList.contains("row-wayne");)c=c.parentNode;b=c.offsetHeight;translateXSize=c.offsetWidth;d=document.createElement("div");d.classList.add("row","row-wayne","js-temp");d.style.height=b.toString()+"px";c.parentNode.insertBefore(d,c);c.classList.add("action-drag");c.style.width=translateXSize.toString()+"px";c.style.transform="translateY( "+(5-b).toString()+"px )";c.setAttribute("eventTranslate",5-b);c.setAttribute("eventOffset",window.pageYOffset);',
             'c.setAttribute("eventY",a.screenY);window.myDragDOM=c}function translateDrag(a){a=parseInt(window.myDragDOM.getAttribute("eventTranslate"))+window.pageYOffset+a.screenY-parseInt(window.myDragDOM.getAttribute("eventOffset"))-parseInt(window.myDragDOM.getAttribute("eventY"));window.myDragDOM.style.transform="translateY( "+a.toString()+"px )"}',
             'function actDrop(a){a.preventDefault();var b=document.querySelector(".js-temp");var d=window.myDragDOM.getBoundingClientRect().top;document.querySelectorAll(".container-wayne .row-wayne").forEach(function(a){a!==window.myDragDOM&&a.getBoundingClientRect().top<d&&(b=a)});b.parentNode.insertBefore(window.myDragDOM,b);resetDragStatus()}function actMouseup(){window.myDragDOM&&resetDragStatus()}',
@@ -22,7 +22,7 @@ class Resume extends React.Component{
         s.async = true;
         s.innerHTML = jsSource.join("\n");
 
-        document.body.appendChild(s);
+        document.querySelector('.container-wayne').appendChild(s);
     }
 
     render() {
@@ -52,6 +52,8 @@ class Resume extends React.Component{
                         drag<br/>
                         rows<br/>
                         <span>(desktop only)</span>
+                    </div>
+                    <div id="dragTemp" style={{display: 'none'}}>
                     </div>
                 </div>
         );
