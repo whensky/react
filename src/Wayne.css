@@ -1,0 +1,78 @@
+.bg-wayne {
+    background: none repeat scroll 0 0 #eee;
+    padding: 0px 0px 20px;
+}
+
+.container-wayne {
+    background-color: #fff;
+    padding-bottom: 30px;
+    border-radius: 0.6em;
+}
+
+.container-wayne .page-header {
+    border: 0px;
+}
+
+.container-wayne h1 {
+    margin-bottom: 0px;
+}
+
+.container-wayne .page-header .text-primary {
+    font-size: 1.8em;
+}
+
+.row-wayne {
+    border-top: 1px solid #eee;
+    padding: 10px 0px;
+}
+
+.container-wayne .text-primary{
+    word-wrap: break-word;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+
+.org-wayne {
+    font-size: large;
+}
+
+.department-wayne {
+    font-weight: bold;
+}
+
+.location-wayne {
+    /*font-size: large;*/
+}
+
+.period-wayne {
+    font-size: smaller;
+    margin-top: 8px;
+}
+
+.action-drag {
+    position: absolute;
+    z-index: 100;
+    background-color: #eee;
+    border: solid 1px #236aa7;
+}
+
+.assistant {
+    position: absolute;
+    font-size: 2em;
+    color: #ff7f00;
+    margin-top: 250px;
+    -webkit-animation-name: assistant;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.assistant span {
+    font-size: 0.5em;
+}
+
+@keyframes assistant {
+    0%   {color: #ff7f00;}
+    50%  {color: #945508;}
+    100% {color: #ff7f00;}
+}
+
