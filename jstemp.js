@@ -45,15 +45,26 @@ function translateDrag(e){
 
 function actDrop(e){
     e.preventDefault();
-    var targetTop,gotoTarget = document.querySelector('.js-temp');
+    var x,stander,gotoTarget = document.querySelector('.js-temp');
 
-    targetTop = window.myDragDOM.getBoundingClientRect().top;
-    document.querySelectorAll('.container-wayne .row-wayne').forEach(function(item){
-        if( item !== window.myDragDOM && item.getBoundingClientRect().top < targetTop ){
-            gotoTarget = item;
-        }
-    });
-    gotoTarget.parentNode.insertBefore(window.myDragDOM, gotoTarget);
+    x=window.myDragDOM.style.transform.match(/-?[0-9]+/);
+    if(x&&parseInt(x)-parseInt(window.myDragDOM.getAttribute("eventTranslate"))>0){
+        stander = window.myDragDOM.getBoundingClientRect().bottom;
+        document.querySelectorAll('.container-wayne .row-wayne').forEach(function(item){
+            if( item !== window.myDragDOM && item.getBoundingClientRect().top < stander ){
+                gotoTarget = item;
+            }
+        });
+        gotoTarget.parentNode.insertBefore(window.myDragDOM, gotoTarget.nextSibling);
+    }else{
+        stander = window.myDragDOM.getBoundingClientRect().top;
+        document.querySelectorAll('.container-wayne .row-wayne').forEach(function(item){
+            if( item !== window.myDragDOM && item.getBoundingClientRect().top < stander ){
+                gotoTarget = item;
+            }
+        });
+        gotoTarget.parentNode.insertBefore(window.myDragDOM, gotoTarget);
+    }
 
     resetDragStatus();
 }

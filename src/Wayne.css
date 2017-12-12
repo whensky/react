@@ -57,8 +57,10 @@
 }
 
 .assistant {
+    max-width: 90px;
+    word-break: break-word;
     position: absolute;
-    font-size: 2em;
+    font-size: 1.8em;
     color: #ff7f00;
     margin-top: 250px;
     -webkit-animation-name: assistant;

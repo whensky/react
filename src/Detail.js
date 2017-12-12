@@ -5,6 +5,17 @@ class Detail extends React.Component {
         return <p key={i}>{text}</p>;
     }
 
+    renderMore(data, i){
+        const ulData = data.detail.map( (a, i)=>{ return <li key={i}>{a}</li>; } );
+
+        return (
+            <div className="row" key={i}>
+                <p>{data.title}</p>
+                <ul>{ulData}</ul>
+            </div>
+        );
+    }
+
     renderPercent(data, i){
         const percent = data.data * 20;
 
@@ -41,6 +52,8 @@ class Detail extends React.Component {
     getFunctionName(){
         if(this.props.detail.type === 'obj'){
             return 'renderObj';
+        }else if(this.props.detail.type === 'detail'){
+            return 'renderMore';
         }else if(this.props.detail.type === 'percent'){
             return 'renderPercent';
         }else{
