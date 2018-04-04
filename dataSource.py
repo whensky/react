@@ -13,26 +13,27 @@ d = {
                 {
                     'title':"程式優化",
                     'detail':[
-                        "參與html夾雜式PHP轉移至smarty",
-                        "由 require 轉移至 autoload",
-                        "php laravel測試 (Ioc、route)",
+                        "參與html夾雜式PHP轉移至smarty階段",
+                        "將散落的function集中至私有repositories統一由autoload引入，改善require亂象，也避免汙染",
+                        "將inc接口轉移至redis，解決server搬遷時crontab困擾，更利於分散部屬",
+                        "php laravel測試、借用Ioc 更進一步管理各 module 的相依，並切割nginx的rewrite設定，統一網址接口防止人為錯誤",
                         "python django導入、強大的admin功能 (python)"
                     ]
                 },
                 {
                     'title':"搜尋優化",
                     'detail':[
-                        "以特定字詞基準，排除雜訊",
-                        "凸顯字段特徵"
+                        "以特定字詞為基準，建立子集合，確定搜尋字為主件或配件",
+                        "導入主詞概念，以詞性區分，當雙主詞出現時辨別是否有贈品"
                     ]
                 },
                 {
                     'title':"流程優化",
                     'detail':[
-                        "參數設定DB設計，並銜接各項內部API",
-                        "jenkins排程、或jenkins webhook 執行work",
-                        "使用者流程分析，Log蒐集、統計、SQL效能調整",
-                        "google sign-in串接"
+                        "常用設定由hard code轉移至DB設計，並銜接各項內部API，減少程式碼更新的風險，也讓需求方可因應自己的需求去變更",
+                        "crontab 排程轉移至jenkins、或以jenkins webhook及時觸發，統一管理排程，避免有幽靈排程狀況",
+                        "使用者流程分析，Log蒐集、過濾raw data、relation切割、藉由預處理以ID為媒介，改善複雜join的速度；協助找出有價值的頁面",
+                        "串接google sign-in統一多管理後台帳號，改善登入流程"
                     ]
                 },
                 {
