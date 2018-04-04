@@ -1,0 +1,12 @@
+[Unit]
+Description=react service
+After=network.target
+
+[Service]
+User=www
+Group=nginx
+WorkingDirectory=/home/httpd/html/react
+ExecStart=/bin/sh start.sh
+
+[Install]
+WantedBy=multi-user.target
